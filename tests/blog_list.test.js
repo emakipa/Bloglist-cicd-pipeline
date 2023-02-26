@@ -76,19 +76,16 @@ describe('dummy', () => {
 describe('total likes', () => {
   test('of empty list is zero', () => {
     const result = listHelper.totalLikes([])
-    //console.log(result)
     expect(result).toBe(0)
   })
 
   test('when list has only one blog equals the likes of that', () => {
     const result = listHelper.totalLikes(listWithOneBlog)
-    //console.log(result)
     expect(result).toBe(5)
   })
 
   test('of bigger list is calculated right', () => {
     const result = listHelper.totalLikes(blogs)
-    //console.log(result)
     expect(result).toBe(36)
   })
 })
@@ -103,7 +100,6 @@ describe('favorite blog', () => {
 
   test('of bigger list is returned right', () => {
     const result = listHelper.favoriteBlog(blogs)
-    //console.log(result)
     expect(result).toEqual(expectedResult)
   })
 })
@@ -117,7 +113,6 @@ describe('most blogs', () => {
 
   test('of bigger list is returned right', () => {
     const result = listHelper.mostBlogs(blogs)
-    //console.log(result)
     expect(result).toEqual(expectedResult)
   })
 })
@@ -131,7 +126,6 @@ describe('most likes', () => {
 
   test('of bigger list is returned right', () => {
     const result = listHelper.mostLikes(blogs)
-    //console.log(result)
     expect(result).toEqual(expectedResult)
   })
 })

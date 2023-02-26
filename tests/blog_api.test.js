@@ -8,10 +8,6 @@ const api = supertest(app)
 beforeEach(async () => {
   await Blog.deleteMany({})
   await Blog.insertMany(helper.initialBlogs)
-  //let blogObject = new Blog(helper.initialBlogs[0])
-  //await blogObject.save()
-  //blogObject = new Blog(helper.initialBlogs[1])
-  //await blogObject.save()
 })
 
 describe('API GET tests', () => {
