@@ -1,0 +1,1 @@
+### Exercise to build CI/CD pipeline for Bloglist app

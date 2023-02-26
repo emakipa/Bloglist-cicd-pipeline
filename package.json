@@ -1,0 +1,77 @@
+{
+  "name": "bloglist-cicd",
+  "version": "1.0.0",
+  "description": "Bloglist CI/CD",
+  "main": "./index.js",
+  "scripts": {
+    "dev": "nodemon ./index.js",
+    "start": "concurrently \"webpack-dev-server --open --mode=development\" \"npm run dev\"",
+    "start:test": "concurrently \"webpack-dev-server --open --mode=development\" \"cross-env NODE_ENV=test node index.js\"",
+    "start-prod": "node index.js",
+    "test": "cross-env NODE_ENV=test jest --env=jsdom --verbose --runInBand",
+    "eslint": "eslint './**/*.{js,jsx}'",
+    "build": "webpack --mode production",
+    "cypress:open": "cypress open",
+    "test:e2e": "cypress run",
+    "all-test": "concurrently \"cross-env NODE_ENV=test jest --env=jsdom --verbose --runInBand\" \"npm run test:e2e\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emakipa/bloglist-cicd.git"
+  },
+  "keywords": [
+    "fullstack-open"
+  ],
+  "author": "Esa Mäkipää",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/emakipa/bloglist-cicd/issues"
+  },
+  "homepage": "https://github.com/emakipa/bloglist-cicd#readme",
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/plugin-transform-runtime": "^7.10.0",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-react": "^7.13.13",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "babel-jest": "^25.5.1",
+    "babel-loader": "^8.1.0",
+    "concurrently": "^7.6.0",
+    "cross-env": "^7.0.2",
+    "css-loader": "^3.5.3",
+    "cypress": "^5.6.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-cypress": "^2.11.2",
+    "eslint-plugin-jest": "^24.1.0",
+    "eslint-plugin-react": "^7.19.0",
+    "html-loader": "^1.1.0",
+    "html-webpack-plugin": "^4.3.0",
+    "jest": "^24.9.0",
+    "nodemon": "^2.0.20",
+    "style-loader": "^1.2.1",
+    "supertest": "^5.0.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "@testing-library/user-event": "^7.2.1",
+    "axios": "^0.21.4",
+    "bcrypt": "^5.0.0",
+    "core-js": "^3.27.2",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.18.2",
+    "express-async-errors": "^3.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.3",
+    "mongoose-unique-validator": "^2.0.3",
+    "prop-types": "^15.7.2",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.3",
+    "regenerator-runtime": "^0.13.11"
+  }
+}
