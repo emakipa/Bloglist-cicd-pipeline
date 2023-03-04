@@ -10,7 +10,7 @@ const loginRouter = require('./controllers/login')
 const middleware = require('./utils/middleware')
 const logger = require('./utils/logger')
 const mongoose = require('mongoose')
-const DIST_DIR = path.join(__dirname, './dist')
+const DIST_DIR = path.join(__dirname, '../dist')
 
 //returns the changed object to caller
 mongoose.set('useFindAndModify', false)
