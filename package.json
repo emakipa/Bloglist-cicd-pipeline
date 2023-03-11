@@ -13,7 +13,7 @@
     "build": "webpack --mode production",
     "cypress:open": "cypress open",
     "test:e2e": "cypress run",
-    "all-test": "concurrently \"cross-env NODE_ENV=test jest --env=jsdom --verbose --runInBand\" \"npm run test:e2e\""
+    "all-test": "npm run test && concurrently \"npm run start:test\" \"npm run test:e2e\""
   },
   "repository": {
     "type": "git",

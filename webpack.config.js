@@ -10,11 +10,10 @@ const config = (env, argv) => {
     : 'http://localhost:3003'
 
   return {
-    entry: ['regenerator-runtime/runtime.js', './src/index.js'],
+    entry: ['regenerator-runtime/runtime.js', './client/src/index.js'],
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: 'bundle.js',
-      //publicPath: '/',
     },
     devServer: {
       port: 3000,
@@ -30,8 +29,8 @@ const config = (env, argv) => {
     devtool: 'source-map',
     plugins: [
       new HtmlWebPackPlugin({
-        template: "./public/index.html",
-        filename: "./index.html",
+        template: "./client/public/index.html",
+        filename: "./index.html"
       }),
       new webpack.DefinePlugin({
         BACKEND_URL: JSON.stringify(backend_url)
