@@ -1,0 +1,22 @@
+# This is a first workflow
+
+name: Hello World!
+
+# Controls when the action will run 
+on:
+  push:
+    branches:
+      - main
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Say hello
+        run: |
+          echo "Hello World!"
+      - name: Now it is
+        run: date
+      - name: Directory content
+        run: ls -l
