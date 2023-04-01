@@ -14,9 +14,11 @@ jobs:
     steps:
       - name: 'Create env file'
         run: |
+          touch .env
           echo "${{ secrets.MONGODB_URI }}" > .env
           echo "${{ secrets.TEST_MONGODB_URI }}" > .env
           echo "${{ secrets.SECRET }}" > .env
+          cat .env
       - name: Git checkout
         uses: actions/checkout@v3
       - name: Use Node.js
