@@ -26,16 +26,15 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '16'
-      - name: start MongoDB
-        uses: supercharge/mongodb-github-action@1.8.0
-        with:
-          mongodb-version: latest
       - name: npm install
         run: npm install
       - name: lint
         run: npm run eslint
       - name: build
         run: npm run build
-      
+      - name: test
+        run: npm test
+        env:
+          CI: true
       
       
