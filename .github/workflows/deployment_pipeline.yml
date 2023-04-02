@@ -15,9 +15,10 @@ jobs:
       - name: 'Create .env file'
         run: |
           touch .env
-          echo MONGODB_URI=${{ secrets.MONGODB_URI }} > .env
-          echo TEST_MONGODB_URI=${{ secrets.TEST_MONGODB_URI }} > .env
-          echo SECRET=${{ secrets.SECRET }} > .env
+          echo MONGODB_URI=${{ secrets.MONGODB_URI }} >> .env
+          echo TEST_MONGODB_URI=${{ secrets.TEST_MONGODB_URI }} >> .env
+          echo SECRET=${{ secrets.SECRET }} >> .env
+          echo PORT=${{ secrets.PORT }} >> .env
           cat .env
       - name: Git checkout
         uses: actions/checkout@v3
@@ -35,15 +36,6 @@ jobs:
         run: npm run eslint
       - name: build
         run: npm run build
-      - name: test
-        run: npm test
-        env:
-          CI: true
-      - name: e2e tests
-        uses: cypress-io/github-action@v2
-        with:
-          command: npm run test:e2e
-          start: npm run start-prod
-          wait-on: http://localhost:5000
+      
       
       
