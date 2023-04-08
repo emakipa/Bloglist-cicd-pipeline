@@ -13,13 +13,16 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: 'Create .env file'
+        env:
+          MONGODB_URI: ${{ secrets.MONGODB_URI }}
+          TEST_MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }} 
+          SECRET: ${{ secrets.SECRET }}
+          PORT: ${{ secrets.PORT }}
         run: |
-          touch .env
-          echo MONGODB_URI=${{ secrets.MONGODB_URI }} >> .env
-          echo TEST_MONGODB_URI=${{ secrets.TEST_MONGODB_URI }} >> .env
-          echo SECRET=${{ secrets.SECRET }} >> .env
-          echo PORT=${{ secrets.PORT }} >> .env
-          cat .env
+          echo $MONGODB_URI | base --decode > .env
+          echo $TEST_MONGODB_URI | base --decode > .env
+          echo $SECRET | base --decode > .env
+          echo $PORT | base --decode > .env
       - name: Git checkout
         uses: actions/checkout@v3
       - name: Use Node.js
