@@ -19,7 +19,7 @@ jobs:
           SECRET: ${{ secrets.SECRET }}
           PORT: ${{ secrets.PORT }}
         run: |
-          $MONGODB_URI > .env
+          echo $MONGODB_URI > .env
           echo $TEST_MONGODB_URI > .env
           echo $SECRET > .env
           echo $PORT > .env
