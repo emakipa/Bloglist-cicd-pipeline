@@ -19,10 +19,10 @@ jobs:
           SECRET: ${{ secrets.SECRET }}
           PORT: ${{ secrets.PORT }}
         run: |
-          echo $MONGODB_URI | base64 --decode > .env
-          echo $TEST_MONGODB_URI | base64 --decode > .env
-          echo $SECRET | base64 --decode > .env
-          echo $PORT | base64--decode > .env
+          echo $MONGODB_URI > .env
+          echo $TEST_MONGODB_URI > .env
+          echo $SECRET > .env
+          echo $PORT > .env
       - name: Git checkout
         uses: actions/checkout@v3
       - name: Use Node.js
