@@ -12,6 +12,8 @@ jobs:
   simple_deployment_pipeline:
     runs-on: ubuntu-20.04
     steps:
+      - name: Git checkout
+        uses: actions/checkout@v3
       - name: 'Create .env file'
         env:
           MONGODB_URI: ${{ secrets.MONGODB_URI }}
@@ -19,12 +21,12 @@ jobs:
           SECRET: ${{ secrets.SECRET }}
           PORT: ${{ secrets.PORT }}
         run: |
+          touch .env
           echo $MONGODB_URI > .env
           echo $TEST_MONGODB_URI > .env
           echo $SECRET > .env
           echo $PORT > .env
-      - name: Git checkout
-        uses: actions/checkout@v3
+          cat .env
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
